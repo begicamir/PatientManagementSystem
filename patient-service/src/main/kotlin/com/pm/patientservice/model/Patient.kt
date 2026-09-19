@@ -8,12 +8,13 @@ import jakarta.persistence.Id
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotNull
 import java.time.LocalDate
+import java.util.UUID
 
 @Entity
 class Patient(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
+    var id: UUID? = null,
 
     @Column(nullable = false)
     var firstName: String,
