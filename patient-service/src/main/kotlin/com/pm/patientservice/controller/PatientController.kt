@@ -9,6 +9,7 @@ import jakarta.validation.groups.Default
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -47,5 +48,12 @@ class PatientController (
         val result = patientService.updatePatient(id, request)
 
         return ResponseEntity.ok(result)
+    }
+
+    @DeleteMapping("/{id}")
+    fun deletePatient(@PathVariable id: UUID): ResponseEntity<Void> {
+        patientService.deletePatient(id)
+
+        return ResponseEntity.noContent().build()
     }
 }

@@ -51,4 +51,8 @@ public class PatientService (
 
         return updatedPatient.toDto()
     }
+
+    fun deletePatient(id : UUID) {
+        repository.deleteById(id)
+    }
 }
