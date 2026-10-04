@@ -1,0 +1,12 @@
+### Update a patient
+PUT http://localhost:4000/patients/123e4567-e89b-12d3-a456-426614174000
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "test@testni.test",
+  "address": "Sweet Home Alabama2",
+  "dateOfBirth": "1995-09-09"
+}
+###

@@ -26,7 +26,7 @@ class Patient(
 
     @Email
     @Column(nullable = false, unique = true)
-    var email: String,
+    var email: String?,
 
     @Column(nullable = false)
     var address: String,

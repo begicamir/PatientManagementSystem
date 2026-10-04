@@ -37,4 +37,21 @@ class GlobalExceptionHandler {
             .badRequest()
             .body(mapOf("email" to (ex.message ?: "Email already exists")))
     }
+
+
+    @ExceptionHandler(PatientNotFoundException::class)
+    fun handlePatientNotFound(
+        ex: PatientNotFoundException
+    ): ResponseEntity<Map<String, String>> {
+
+        log.warn("Patient not found: {}", ex.message)
+
+        return ResponseEntity
+            .status(404)
+            .body(
+                mapOf(
+                    "error" to (ex.message ?: "Patient not found")
+                )
+            )
+    }
 }
