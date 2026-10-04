@@ -2,6 +2,7 @@ package com.pm.patientservice.service
 
 import com.pm.patientservice.dto.PatientRequestDTO
 import com.pm.patientservice.dto.PatientResponseDTO
+import com.pm.patientservice.exception.EmailAlreadyExistsException
 import com.pm.patientservice.mapper.toDto
 import com.pm.patientservice.mapper.toEntity
 import com.pm.patientservice.model.Patient
@@ -18,6 +19,10 @@ public class PatientService (
     }
 
     fun createNewPatient(patient: PatientRequestDTO): PatientResponseDTO {
+
+        if (repository.existsByEmail(patient.email)) {
+            throw EmailAlreadyExistsException()
+        }
         val newPatient = repository.save(patient.toEntity())
         return newPatient.toDto()
     }
