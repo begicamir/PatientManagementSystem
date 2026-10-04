@@ -1,7 +1,9 @@
 package com.pm.patientservice.service
 
+import com.pm.patientservice.dto.PatientRequestDTO
 import com.pm.patientservice.dto.PatientResponseDTO
 import com.pm.patientservice.mapper.toDto
+import com.pm.patientservice.mapper.toEntity
 import com.pm.patientservice.model.Patient
 import com.pm.patientservice.repository.PatientRepository
 import org.springframework.stereotype.Service
@@ -13,5 +15,10 @@ public class PatientService (
 
     public fun getPatients(): List<PatientResponseDTO> {
         return repository.findAll().map { it.toDto() }
+    }
+
+    fun createNewPatient(patient: PatientRequestDTO): PatientResponseDTO {
+        val newPatient = repository.save(patient.toEntity())
+        return newPatient.toDto()
     }
 }

@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotNull
+import org.hibernate.annotations.UuidGenerator
 import java.time.LocalDate
 import java.util.UUID
 
@@ -14,6 +15,7 @@ import java.util.UUID
 class Patient(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @UuidGenerator
     var id: UUID? = null,
 
     @Column(nullable = false)
