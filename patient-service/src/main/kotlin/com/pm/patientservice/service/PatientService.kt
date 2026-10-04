@@ -35,8 +35,8 @@ public class PatientService (
                 PatientNotFoundException("Patient with id $id not found")
             }
 
-        if (patient.email != request.email &&
-            repository.existsByEmail(request.email)
+        if (
+            repository.existsByEmailAndIdNot(request.email, id)
         ) {
             throw EmailAlreadyExistsException()
         }
