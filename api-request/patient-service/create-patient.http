@@ -6,7 +6,7 @@ Content-Type: application/json
   "firstName": "John",
   "lastName": "Doe",
   "email": "test@tester12.com",
-  "address": "Home sweet home",
+  "address": "Sweet Home Alabama",
   "dateOfBirth": "1995-09-09",
   "registeredDate": "1997-08-08"
 }
